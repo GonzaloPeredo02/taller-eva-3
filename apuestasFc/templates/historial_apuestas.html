@@ -1,0 +1,64 @@
+{% extends 'registration/base_login.html' %}
+
+{% load static %}
+
+{% block titulo %}
+historial de apuestas
+{% endblock %}
+
+{% block contenido %} 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- DataTables Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css
+    ">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css
+    ">
+
+</head>
+<body>
+    <a href="{% url 'perfil_usuarios' %}">volver</a>
+    <div class="container row d-flex">
+        <table id="example" class="table table-striped" style="width:100%">
+            <thead class="table-info">
+                <tr>
+                    <th>#</th>
+                    <th>Juego</th>
+                    <th>Equipo Apostado</th>
+                    <th>Resultado</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                {% if apuestas %}
+                    {% for apuesta in apuestas %}
+                        <tr>
+                            <td>{{ apuesta.id }}</td>
+                            <td>{{ apuesta.juego }}</td>
+                            <td>{{ apuesta.equipo_apostado }}</td>
+                            <td>{{ apuesta.resultado|yesno:"Ganaste,Perdiste" }}</td>
+                            <td>{{ apuesta.fecha_apuesta }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">No hay apuestas disponibles.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js
+    " ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js
+    " ></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js
+    " ></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js
+    " ></script>
+    <script> $(document).ready(function() { $('#example').DataTable({ dom: 'Bfrtip', buttons: [ 'copy', 'excel', 'pdf', 'colvis' ] }); }); </script>
+
+{% endblock %} 
+
+

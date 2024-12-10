@@ -1,0 +1,22 @@
+{% extends 'registration/base_login.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Apostar en Juego
+{% endblock %}
+
+{% block contenido %} 
+<body>
+    <h1>Apostar en Juego</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="equipo">Selecciona un equipo:</label>
+        <select name="equipo" id="equipo">
+            <option value="{{ juego.equipo1.id }}">{{ juego.equipo1.nombre }}</option>
+            <option value="{{ juego.equipo2.id }}">{{ juego.equipo2.nombre }}</option>
+        </select>
+        <button type="submit">Apostar</button>
+    </form>
+</body>
+{% endblock %}

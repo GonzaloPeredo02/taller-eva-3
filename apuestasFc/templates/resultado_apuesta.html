@@ -1,0 +1,22 @@
+{% extends 'registration/base_login.html' %}
+{% load static %}
+
+{% block titulo %}
+Resultado de la Apuesta
+{% endblock %}
+
+{% block contenido %} 
+<a href="{% url 'home' %}">volver</a>
+<body >
+    <div class="container card">
+        <h1 class="mt-5">Resultado de la Apuesta</h1>
+        {% load static %}
+        <p>El ganador es: {{ ganador.nombre }}</p>
+        <img src="{% static imagen_ganador %}" alt="{{ ganador.nombre }}" width="50" height="50">
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

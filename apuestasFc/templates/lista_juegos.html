@@ -1,0 +1,33 @@
+{% extends 'registration/base_login.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Lista de Juegos
+{% endblock %}
+
+{% block contenido %} 
+<a href="{% url 'home' %}">volver</a>
+<body>
+    <div class="container">
+        <h1 class="text-center">Lista de Juegos</h1>
+        {% load static %}
+        <ul class="list-group">
+            {% for juego in juegos %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <img src="{% static juego.imagen_equipo1 %}" alt="{{ juego.equipo1.nombre }}" width="50" height="50" class="mr-2">
+                        {{ juego.equipo1.nombre }} vs 
+                        {{ juego.equipo2.nombre }}
+                        <img src="{% static juego.imagen_equipo2 %}" alt="{{ juego.equipo2.nombre }}" width="50" height="50" class="ml-2">
+                    </div>
+                    <a href="{% url 'apostar_juego' juego.id %}" class="btn btn-success">Apostar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

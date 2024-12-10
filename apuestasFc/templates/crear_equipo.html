@@ -1,0 +1,22 @@
+{% extends 'registration/base_login.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    Crear Equipo
+{% endblock %}
+
+{% block contenido %} 
+<a href="{% url 'gestor_usuarios' %}">volver</a>
+<body >
+    <h1>Crear Equipo</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div >
+            {{ form.as_p }}
+        </div>
+        
+        <button class="btn btn-success" type="submit">Guardar</button>
+    </form>
+</body>
+{% endblock %}

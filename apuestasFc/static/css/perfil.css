@@ -1,0 +1,109 @@
+/* Fondo del body con degradado vertical */
+body {
+    background: linear-gradient(180deg, #a6ff7b 0%, #1d9603 50%, #6cd757 100%);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, rgba(166, 255, 123, 1) 0%, rgba(29, 150, 3, 1) 23%, rgba(108, 215, 87, 1) 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.header-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.header-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Contenedor del perfil */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: 3px solid #28a745;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Imagen de perfil */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #28a745;
+    transition: transform 0.3s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.edit-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Detalles del perfil */
+.profile-details dt {
+    font-weight: bold;
+}
+
+.profile-details dd {
+    margin-bottom: 1rem;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.history-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.history-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
